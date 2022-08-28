@@ -2,40 +2,53 @@ var lowerpassword = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
 var upperpassword = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", ", Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "A", "B", "C", "D", "E", "F", "G", "H", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "A", "B", "C", "D", "E", "F"];
 var numberpassword = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8];
 var specialpassword = [ "!", "@", "#", "$", "%", "&", "*", "^", "(", ")", "!", "@", "#", "$", "%", "&", "*", "^", "(", ")", "!", "@", "#", "$", "%", "&", "*", "^", "(", ")", "!", "@", "#", "$", "%", "&", "*", "^", "(", ")", "!", "@", "#", "$", "%", "&", "*", "^", "(", ")", "!", "@", "#", "$", "%", "&", "*", "^", "(", ")", "!", "@", "#", "$", "%", "&", "*", "^", "(", ")", "!", "@", "#", "$", "%", "&", "*", "^", "(", ")", "!", "@", "#", "$", "%", "&", "*", "^", "(", ")", "!", "@", "#", "$", "%", "&", "*", "^", "(", ")", "!", "@", "#", "$", "%", "&", "*", "^", "(", ")", "!","$", "%", "&", "*", "^", "(", ")", "!", "@", "#", "$", "%", "&", "*", "^", "(", ")"];
-var password = ["yep"];
-var passwordlength = 128 - 10
-var lowercase = false
+var passwordlength = 10
+var lowercase = true
 var uppercase = true
-var numbers = false
-var specialchar = false
+var numbers = true
+var specialchar = true
+
+function paramaters() {
+  var promptlength = prompt("Please enter how long you want your password to be.");
+  console.log(promptlength);
+}
 
 function generate() {
   if (lowercase == false) {
     lowerpassword.splice(0, 128,);
-    console.log(lowerpassword);
   }
   if (uppercase == false) {
     upperpassword.splice(0, 128,);
-    console.log(upperpassword);
   }
   if (numbers == false) {
     numberpassword.splice(0, 128,);
-    console.log(numberpassword);
   }
   if (specialchar == false) {
     specialpassword.splice(0, 128,);
-    console.log(specialpassword);
   }
   var newpassword = lowerpassword.concat(upperpassword, numberpassword, specialpassword);
-  console.log(newpassword);
   for (let i = newpassword.length -1; i > 0; i--) {
     let j = Math.floor(Math.random() * i)
     let k = newpassword[i]
     newpassword[i] = newpassword[j]
     newpassword[j] = k
   }
-  console.log(newpassword);
-  newpassword.splice(0, passwordlength,);
+  
+  newpassword.length = passwordlength;
+
+  if (lowercase == true) {
+    newpassword.splice(0, 1, "a");
+  }
+  if (uppercase == true) {
+    newpassword.splice(2, 1, "A");
+  }
+  if (numbers == true) {
+    newpassword.splice(4, 1, 1);
+  }
+  if (specialchar == true) {
+    newpassword.splice(6, 1, "%");
+  }
+
   console.log(newpassword);
 }
 
