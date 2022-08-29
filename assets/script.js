@@ -7,7 +7,7 @@ const element = document.querySelector('.btn');
 element.style.backgroundColor = 'red';
 
 function paramaters() {
-  var promptlength = prompt("Please enter how long you want your password to be.");
+  var promptlength = prompt("How long do you want your password to be? Password must be at least 8 characters and no more than 128 characters.");
   console.log(promptlength);
 }
 
@@ -15,7 +15,7 @@ function generate() {
   if (notrunyet == 1) {
   notrunyet++
   element.style.backgroundColor = "gray";
-  var passwordlength = prompt("Please enter how long you want your password to be.");
+  var passwordlength = prompt("How long do you want your password to be? Password must be at least 8 characters and no more than 128 characters.");
   if (passwordlength > 128 || passwordlength < 8) {
     alert("Password must be at least 8 characters and no more than 128 characters");
     return;
