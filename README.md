@@ -13,7 +13,7 @@ https://boomerizzy3.github.io/Password-Generator/
 
 ## Screenshot
 
-![website-screenshot](.\assets\images\website-screenshot.gif?raw=true "Screenshot of website")
+https://github.com/Boomerizzy3/Password-Generator/blob/main/assets/images/website-screenshot.gif
 
 ## Credits
 
